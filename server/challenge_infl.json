@@ -1,0 +1,52 @@
+[
+  {
+    "language": "en",
+    "challenges": [
+      {
+        "challenge": "Clear the Nitro drome, Defeat Ringmaster Scarr and steal her car",
+        "pts": "25"
+      },
+      {
+        "challenge": "Land 5 games in Nitro drome",
+        "pts": "10"
+      },
+      {
+        "challenge": "Get 10 eliminations in Reload",
+        "pts": "30"
+      },
+      {
+        "challenge": "win without eliminating anyone",
+        "pts": "100"
+      },
+      {
+        "challenge": "Get an elimination with Nitro effect ",
+        "pts": "10"
+      }
+    ]
+  },
+  {
+    "language": "ar",
+    "challenges": [
+      {
+        "challenge": "قم باقصاء الجميع في  حلبة النيترو، واهزم سكار سيدة الحلبة واسرق مركبتها",
+        "pts": "25"
+      },
+      {
+        "challenge": "اهبط في 5 مباريات في حلبة النيترو",
+        "pts": "10"
+      },
+      {
+        "challenge": "قم باقصاء 10 لاعبين في طور الإعادة",
+        "pts": "30"
+      },
+      {
+        "challenge": "الفوز بدون إقصاء أيّ لاعب",
+        "pts": "100"
+      },
+      {
+        "challenge": "قم باقصاء لاعب باستخدام تأثيرالنيترو",
+        "pts": "10"
+      }
+    ]
+  }
+]
