@@ -70,7 +70,7 @@ main {
 .rule-container {
   display: flex;
   gap: 50px;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .description-rule {
   font-size: 1.6rem;
