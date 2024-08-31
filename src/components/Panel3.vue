@@ -16,7 +16,7 @@
         </div>
         <div class="rule-container">
           <div class="left-side">
-            <div class="tlt-rule" >xxx V-BUCKS <div class="description-rule-2">
+            <div class="tlt-rule">xxx V-BUCKS<div class="description-rule-2">
               FOR MVP EACH MATCH
             </div></div>
           </div>
@@ -24,7 +24,6 @@
             <img class="img-placeholder" src="https://ega-mena.b-cdn.net/external/content/vbucks.png" alt="Placeholder Image">
           </div>
         </div>
-
       </div>
     </main>
   </div>
@@ -33,12 +32,14 @@
 <style scoped>
 .main-bg-img-panel {
   background-image: url('https://cdn.egamena.com/external/content/bg_panel_3.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
-
 main {
   display: flex;
   flex-direction: column;
@@ -101,4 +102,42 @@ main {
   border-radius: 40px;
   object-fit: contain;
 }
+@media (max-width: 1300px) {
+  .tlt-rule {
+    font-size: 1.8rem;
+  }
+
+  .description-rule {
+    font-size: 1.5rem;
+  }
+
+  .description-rule-2 {
+    font-size: 1.8rem;
+  }
+
+  .rules-main-cont {
+    gap: 20px;
+    max-width: 85%;
+  }
+  .left-side {
+    width: 100%;
+  }
+  .rule-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .img-placeholder {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 970px) {
+  main {
+    padding: 20px 30px;
+
+  }
+}
+
 </style>

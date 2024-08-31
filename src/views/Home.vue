@@ -3,7 +3,7 @@
     <Panel1Comp />
     <Panel2Comp />
     <Panel3Comp />
-    
+
     <img class="image-left" src="https://cdn.egamena.com/external/content/hs_left_1.png" alt="Imagen izquierda" />
     <img class="image-right" src="https://cdn.egamena.com/external/content/hs_right_1.png" alt="Imagen derecha" />
   </div>
@@ -18,9 +18,9 @@ export default {
   components: {
     Panel1Comp,
     Panel2Comp,
-    Panel3Comp
-  }
-}
+    Panel3Comp,
+  },
+};
 </script>
 
 <style scoped>
@@ -29,17 +29,39 @@ export default {
   position: relative;
 }
 
-.image-left {
+.image-left,
+.image-right {
   position: absolute;
-  top: 680px;
   width: 600px;
+}
+
+.image-left {
+  top: 680px;
   left: -140px;
 }
 
 .image-right {
-  position: absolute;
-  width: 600px;
-  bottom: 700px;
+  top: 1250px;
   right: -100px;
+}
+
+@media (max-width: 1300px) {
+  .image-left,
+  .image-right {
+    width: 400px;
+  }
+}
+
+@media (max-width: 990px) {
+  .image-right {
+    top: 2300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .image-left,
+  .image-right {
+    display: none;
+  }
 }
 </style>

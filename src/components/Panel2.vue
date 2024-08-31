@@ -2,7 +2,7 @@
   <div class="main-bg-img-panel">
     <main>
       <div class="main-img-logo">
-        <img class="logo-event" src="https://cdn.egamena.com/external/content/hunter_station_logo.png" alt="" srcset="">
+        <img class="logo-event" src="https://cdn.egamena.com/external/content/hunter_station_logo.png" alt="" />
       </div>
       <div class="creators-main-container">
         <div class="tlt-big-capture">
@@ -12,12 +12,12 @@
       </div>
       <div class="bottom-part">
         <div class="fn-logo-created">
-          <img class="fn-logo" src="https://cdn.egamena.com/external/content/created_in_fortnite.png" alt="" srcset="">
+          <img class="fn-logo" src="https://cdn.egamena.com/external/content/created_in_fortnite.png" alt="" />
         </div>
         <div style="display: grid; gap: 14px;">
           <div class="btn-text">Scroll for rules and rewards</div>
           <a class="arrow-scroll-a" href="javascript:void(0);" @click="scrollDown"><img class="arrow-scroll"
-              src="https://cdn.egamena.com/external/content/arrow.png" alt="" srcset=""></a>
+              src="https://cdn.egamena.com/external/content/arrow.png" alt="" /></a>
         </div>
       </div>
     </main>
@@ -31,21 +31,24 @@ export default {
       window.scrollBy({
         top: 1080,
         left: 0,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style scoped>
 .main-bg-img-panel {
+  background: linear-gradient(23deg, rgba(112, 221, 255, 1) 0%, rgba(19, 177, 226, 1) 100%), 
+    url('https://cdn.egamena.com/external/content/bg_panel_2.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: rgb(112, 221, 255);
-  background: linear-gradient(23deg, rgba(112, 221, 255, 1) 0%, rgba(19, 177, 226, 1) 100%);
 }
 
 .main-img-logo {
@@ -120,4 +123,23 @@ main {
   transition: all 0.3s;
   filter: brightness(1.2);
 }
+
+@media (max-width: 970px) {
+  .tlt-big-capture {
+    font-size: 4rem;
+  }
+  .btn-tlt-big {
+    font-size: 3rem;
+  }
+  main {
+    padding: 20px 30px;
+
+  }
+}
+@media (max-width: 600px) {
+  .fn-logo {
+    height: 30px;
+}
+}
+
 </style>
