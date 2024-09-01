@@ -4,10 +4,10 @@
       <div class="main-tlt-select-creator">SELECT YOUR TEAM</div>
       <div class="creators-main-container">
         <div class="creator-container" v-for="team in teams" :key="team.name">
-          <a href="" class="top-part-team">
+          <a :href="team.api" class="top-part-team">
             <img class="top-img-creators" :src="team.imgSrc" alt="" />
           </a>
-          <a href="" class="top-part-team">
+          <a :href="team.api" class="top-part-team">
             <img class="btn-img-creators" src="https://cdn.egamena.com/external/content/INFLU_PLACEHOLDER.png" alt="" />
           </a>
         </div>
@@ -27,9 +27,9 @@ export default {
   data() {
     return {
       teams: [
-        { name: "Jeddah", imgSrc: "https://cdn.egamena.com/external/content/JEDDAH.png" },
-        { name: "Riyadh", imgSrc: "https://cdn.egamena.com/external/content/RIYADH.png" },
-        { name: "Dammam", imgSrc: "https://cdn.egamena.com/external/content/DAMMAM.png" },
+        { name: "Jeddah", imgSrc: "https://cdn.egamena.com/external/content/JEDDAH.png", api: "http://api.egamena.com/v1/discord/auth/1278132140109860887/1278336105967648870" },
+        { name: "Riyadh", imgSrc: "https://cdn.egamena.com/external/content/RIYADH.png", api: "http://api.egamena.com/v1/discord/auth/1278132140109860887/1278336194782035968"  },
+        { name: "Dammam", imgSrc: "https://cdn.egamena.com/external/content/DAMMAM.png", api: "http://api.egamena.com/v1/discord/auth/1278132140109860887/1278336141145276458"  },
       ],
     };
   },
