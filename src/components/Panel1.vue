@@ -27,9 +27,9 @@ export default {
   data() {
     return {
       teams: [
-        { name: "Jeddah", imgSrc: "https://cdn.egamena.com/external/content/JEDDAH.png", api: "http://api.egamena.com/v1/discord/auth/1278132140109860887/1278336105967648870" },
-        { name: "Riyadh", imgSrc: "https://cdn.egamena.com/external/content/RIYADH.png", api: "http://api.egamena.com/v1/discord/auth/1278132140109860887/1278336194782035968"  },
-        { name: "Dammam", imgSrc: "https://cdn.egamena.com/external/content/DAMMAM.png", api: "http://api.egamena.com/v1/discord/auth/1278132140109860887/1278336141145276458"  },
+        { name: "Jeddah", imgSrc: "https://cdn.egamena.com/external/content/JEDDAH.png", api: "https://egamena.link/4jka1f" },
+        { name: "Riyadh", imgSrc: "https://cdn.egamena.com/external/content/RIYADH.png", api: "https://egamena.link/4jka1f"  },
+        { name: "Dammam", imgSrc: "https://cdn.egamena.com/external/content/DAMMAM.png", api: "https://egamena.link/4jka1f"  },
       ],
     };
   },
