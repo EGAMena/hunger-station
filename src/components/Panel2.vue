@@ -138,7 +138,6 @@ main {
   color: #fff;
 }
 .top-part {
-  margin-top: auto;
   display: grid;
   gap: 30px;
   font-weight: 400;
