@@ -12,7 +12,7 @@
               src="https://cdn.egamena.com/external/content/arrow.png"
               alt=""
           /></a>
-          <div class="btn-text">Return to team selection</div>
+          <div class="btn-text">Return to rules and rewards</div>
         </div>
       </div>
 
