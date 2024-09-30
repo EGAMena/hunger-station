@@ -1,23 +1,50 @@
 <template>
   <div class="main-bg-img-panel">
     <main>
-      <div class="main-img-logo">
-        <img class="logo-event" src="https://cdn.egamena.com/external/content/hunter_station_logo.png" alt="" />
+      <div class="top-part">
+        <div style="display: grid; gap: 14px">
+          <a
+            class="arrow-scroll-a"
+            href="javascript:void(0);"
+            @click="scrollUp"
+            ><img
+              class="arrow-scroll2"
+              src="https://cdn.egamena.com/external/content/arrow.png"
+              alt=""
+          /></a>
+          <div class="btn-text">Return to team selection</div>
+        </div>
       </div>
       <div class="creators-main-container">
-        <div class="tlt-big-capture">
-          CAPTURE THE FLAG!
+        <div class="tlt-big-capture">RULES AND REWARDS</div>
+        <div class="btn-tlt-big">
+          Make sure to watch <br />
+          the stream and play.
         </div>
-        <div class="btn-tlt-big">10v10v10</div>
+        <div class="btn-tlt-big-3">
+          Streamers will be awarding VBucks <br />
+          to MVPs, in addition to prizes being <br />
+          granted by Hunger Station.
+        </div>
+        <img
+          class="vbucks-img"
+          src="https://cdn.egamena.com/external/hunger-station/vbucks.png"
+          alt=""
+          srcset=""
+        />
       </div>
       <div class="bottom-part">
-        <div class="fn-logo-created">
-          <img class="fn-logo" src="https://cdn.egamena.com/external/content/created_in_fortnite.png" alt="" />
-        </div>
-        <div style="display: grid; gap: 14px;">
-          <div class="btn-text">Scroll for rules and rewards</div>
-          <a class="arrow-scroll-a" href="javascript:void(0);" @click="scrollDown"><img class="arrow-scroll"
-              src="https://cdn.egamena.com/external/content/arrow.png" alt="" /></a>
+        <div style="display: grid; gap: 14px">
+          <div class="btn-text">Scroll for more details</div>
+          <a
+            class="arrow-scroll-a"
+            href="javascript:void(0);"
+            @click="scrollDown"
+            ><img
+              class="arrow-scroll"
+              src="https://cdn.egamena.com/external/content/arrow.png"
+              alt=""
+          /></a>
         </div>
       </div>
     </main>
@@ -31,7 +58,14 @@ export default {
       window.scrollBy({
         top: 1080,
         left: 0,
-        behavior: 'smooth',
+        behavior: "smooth",
+      });
+    },
+    scrollUp() {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
       });
     },
   },
@@ -40,8 +74,7 @@ export default {
 
 <style scoped>
 .main-bg-img-panel {
-  background: linear-gradient(23deg, rgba(112, 221, 255, 1) 0%, rgba(19, 177, 226, 1) 100%), 
-    url('https://cdn.egamena.com/external/content/bg_panel_2.png');
+  background-image: url("https://cdn.egamena.com/external/hunger-station/bg_panel_2.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -49,16 +82,6 @@ export default {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-}
-
-.main-img-logo {
-  margin: 50px auto;
-  display: flex;
-}
-
-.logo-event {
-  width: 220px;
-  display: flex;
 }
 
 main {
@@ -72,19 +95,28 @@ main {
 
 .tlt-big-capture {
   font-weight: 900;
-  font-size: 6rem;
+  font-size: 3.5rem;
   color: #fbef00;
+  margin-top: 30px;
   font-style: italic;
 }
 
 .btn-tlt-big {
   font-weight: 900;
-  font-size: 5rem;
+  font-size: 3.5rem;
   color: #fff;
+  margin-top: 10px;
   font-style: italic;
-
+  text-transform: uppercase;
 }
-
+.btn-tlt-big-3 {
+  font-weight: 900;
+  font-size: 2rem;
+  color: #fff;
+  margin-top: 10px;
+  font-style: italic;
+  text-transform: uppercase;
+}
 .fn-logo-created {
   justify-content: center;
   display: flex;
@@ -96,14 +128,17 @@ main {
   justify-content: space-around;
 }
 
-.fn-logo {
-  height: 40px;
-  display: flex;
-}
-
 .bottom-part {
   margin-top: auto;
-  padding-bottom: 20px;
+  padding-bottom: 0px;
+  display: grid;
+  gap: 30px;
+  font-weight: 400;
+  font-size: 18px;
+  color: #fff;
+}
+.top-part {
+  margin-top: auto;
   display: grid;
   gap: 30px;
   font-weight: 400;
@@ -111,6 +146,10 @@ main {
   color: #fff;
 }
 
+.arrow-scroll2 {
+  width: 40px;
+  transform: scaleY(-1);
+}
 .arrow-scroll {
   width: 40px;
 }
@@ -126,20 +165,23 @@ main {
 
 @media (max-width: 970px) {
   .tlt-big-capture {
-    font-size: 4rem;
+    font-size: 2rem;
   }
   .btn-tlt-big {
-    font-size: 3rem;
+    font-size: 2rem;
+  }
+  .btn-tlt-big-3 {
+    font-size: 1.3rem;
   }
   main {
     padding: 20px 30px;
-
   }
 }
-@media (max-width: 600px) {
-  .fn-logo {
-    height: 30px;
-}
-}
 
+.vbucks-img {
+  display: flex;
+  margin-top: 40px;
+  max-width: 100%;
+  width: 100%;
+}
 </style>

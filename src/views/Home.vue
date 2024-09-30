@@ -3,9 +3,6 @@
     <Panel1Comp />
     <Panel2Comp />
     <Panel3Comp />
-
-    <img class="image-left" src="https://cdn.egamena.com/external/content/hs_left_1.png" alt="Imagen izquierda" />
-    <img class="image-right" src="https://cdn.egamena.com/external/content/hs_right_1.png" alt="Imagen derecha" />
   </div>
 </template>
 

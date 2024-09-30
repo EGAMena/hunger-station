@@ -1,6 +1,17 @@
 <template>
   <div class="main-bg-img-panel">
     <main>
+      <div class="img-present">
+        <img src="https://cdn.egamena.com/external/hunger-station/hunter_station_present.png" alt="">
+      </div>
+      <div class="creators-main-container-tlt">
+        <div class="btn-tlt-big-1">A CUSTOM FORTNITE</div>
+        <div class="tlt-big-capture">CAPTURE THE FLAG!</div>
+        <div class="btn-tlt-big">10v10v10</div>
+      </div>
+      <div class="img-created-in-fn">
+        <img src="https://cdn.egamena.com/external/hunger-station/created_fortnite.png" alt="">
+      </div>
       <div class="main-tlt-select-creator">SELECT YOUR TEAM</div>
       <div class="creators-main-container">
         <div class="creator-container" v-for="team in teams" :key="team.name">
@@ -8,14 +19,26 @@
             <img class="top-img-creators" :src="team.imgSrc" alt="" />
           </a>
           <a :href="team.api" class="top-part-team">
-            <img class="btn-img-creators" src="https://cdn.egamena.com/external/content/INFLU_PLACEHOLDER.png" alt="" />
+            <img
+              class="btn-img-creators"
+              src="https://cdn.egamena.com/external/content/INFLU_PLACEHOLDER.png"
+              alt=""
+            />
           </a>
         </div>
       </div>
       <div class="bottom-part">
         <div class="btn-text">Scroll for more details</div>
-        <a class="arrow-scroll-a" href="javascript:void(0);" @click="scrollDown">
-          <img class="arrow-scroll" src="https://cdn.egamena.com/external/content/arrow.png" alt="" />
+        <a
+          class="arrow-scroll-a"
+          href="javascript:void(0);"
+          @click="scrollDown"
+        >
+          <img
+            class="arrow-scroll"
+            src="https://cdn.egamena.com/external/content/arrow.png"
+            alt=""
+          />
         </a>
       </div>
     </main>
@@ -27,18 +50,30 @@ export default {
   data() {
     return {
       teams: [
-        { name: "Jeddah", imgSrc: "https://cdn.egamena.com/external/content/JEDDAH.png", api: "https://egamena.link/4jka1f" },
-        { name: "Riyadh", imgSrc: "https://cdn.egamena.com/external/content/RIYADH.png", api: "https://egamena.link/4jka1f"  },
-        { name: "Dammam", imgSrc: "https://cdn.egamena.com/external/content/DAMMAM.png", api: "https://egamena.link/4jka1f"  },
+        {
+          name: "Jeddah",
+          imgSrc: "https://cdn.egamena.com/external/hunger-station/JEDDAH.png",
+          api: "https://egamena.link/4jka1f",
+        },
+        {
+          name: "Riyadh",
+          imgSrc: "https://cdn.egamena.com/external/hunger-station/RIYADH.png",
+          api: "https://egamena.link/4jka1f",
+        },
+        {
+          name: "Dammam",
+          imgSrc: "https://cdn.egamena.com/external/hunger-station/DAMMAM.png",
+          api: "https://egamena.link/4jka1f",
+        },
       ],
     };
   },
   methods: {
     scrollDown() {
       window.scrollBy({
-        top: 950,
+        top: 850,
         left: 0,
-        behavior: 'smooth',
+        behavior: "smooth",
       });
     },
   },
@@ -47,7 +82,7 @@ export default {
 
 <style scoped>
 .main-bg-img-panel {
-  background-image: url('https://cdn.egamena.com/external/content/bg_panel_1.png');
+  background-image: url("https://cdn.egamena.com/external/hunger-station/bg_panel_1.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -67,24 +102,23 @@ main {
 
 .main-tlt-select-creator {
   font-weight: 900;
-  font-size: 3.3rem;
+  font-size: 1.8rem;
   color: #fbef00;
   font-style: italic;
-  margin: 30px 0;
+  margin: 20px 0;
 }
 
 .creators-main-container {
   display: flex;
   gap: 50px;
   max-width: 90%;
-  margin: 20px auto 0 auto;
+  margin: 20px auto 40px auto;
   justify-content: space-around;
 }
 
 .creator-container {
   display: grid;
-  gap: 60px;
-  max-width: 22%;
+  gap: 30px;
 }
 
 .top-img-creators {
@@ -112,6 +146,9 @@ main {
   font-size: 18px;
   color: #fff;
 }
+img.btn-img-creators {
+  max-width: 120px;
+}
 
 .arrow-scroll {
   width: 40px;
@@ -131,22 +168,64 @@ main {
   }
   .creator-container {
     width: 100%;
-    gap: 30px;
+    gap: 20px;
     max-width: 50%;
   }
 }
 @media (max-width: 970px) {
   main {
     padding: 20px 30px;
-
   }
   .creator-container {
     width: 100%;
   }
   .creators-main-container {
-    margin: 0;
     justify-content: center;
+    margin-bottom: 40px;
   }
 }
 
+.tlt-big-capture {
+  font-weight: 900;
+  font-size: 3rem;
+  color: #fbef00;
+  font-style: italic;
+}
+
+.btn-tlt-big {
+  font-weight: 900;
+  font-size: 3rem;
+  color: #fff;
+  font-style: italic;
+  margin-top: -10px;
+}
+.btn-tlt-big-1 {
+  font-weight: 900;
+  font-size: 2rem;
+  color: #fff;
+  font-style: italic;
+}
+.creators-main-container-tlt {
+  display: flex;
+  flex-direction: column;
+}
+.img-created-in-fn {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.img-created-in-fn img {
+  display: flex;
+  max-width: 170px;
+}
+
+.img-present {
+    display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.img-present img {
+  display: flex;
+}
 </style>
