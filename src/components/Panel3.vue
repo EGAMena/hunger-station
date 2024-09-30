@@ -1,37 +1,132 @@
 <template>
   <div class="main-bg-img-panel">
     <main>
-      <div class="main-tlt-select-creator">RULES AND REWARDS</div>
-      <div class="rules-main-cont">
-        <div class="rule-container">
-          <div class="left-side">
-            <div class="tlt-rule">RULES</div>
-            <div class="description-rule">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. 
-            </div>
-          </div>
-          <div class="right-side">
-            <img class="img-placeholder" src="https://ega-mena.b-cdn.net/external/content/in_game_placeholder.png" alt="Placeholder Image">
-          </div>
-        </div>
-        <div class="rule-container">
-          <div class="left-side">
-            <div class="tlt-rule">xxx V-BUCKS<div class="description-rule-2">
-              FOR MVP EACH MATCH
-            </div></div>
-          </div>
-          <div class="right-side">
-            <img class="img-placeholder" src="https://ega-mena.b-cdn.net/external/content/vbucks.png" alt="Placeholder Image">
-          </div>
+          <div class="top-part">
+        <div style="display: grid; gap: 14px">
+          <a
+            class="arrow-scroll-a"
+            href="javascript:void(0);"
+            @click="scrollUp"
+            ><img
+              class="arrow-scroll2"
+              src="https://cdn.egamena.com/external/content/arrow.png"
+              alt=""
+          /></a>
+          <div class="btn-text">Return to team selection</div>
         </div>
       </div>
+
+      <div class="tlt-streaming-on">STREAMING ON</div>
+      <div class="main-tlt-select-creator">(INSERT DATE AND TIME)</div>
+      <div class="creators-main-container">
+        <div class="creator-container" v-for="team in teams" :key="team.name">
+          <a :href="team.twitch" class="top-part-team">
+            <img class="top-img-creators" :src="team.imgSrc" alt="Team Logo" />
+          </a>
+          <a :href="team.twitch" class="top-part-team">
+            <img
+              class="btn-img-creators"
+              :src="team.img_influencer"
+              alt="Influencer Image"
+            />
+          </a>
+        </div>
+      </div>
+      <div class="tlt-leaderboard">LEADERBOARD</div>
+      <div class="leaderboard-table">
+        <div class="table-bg">
+          <table>
+            <thead>
+              <tr>
+                <th style="text-align: center">RANK</th>
+                <th>TEAM NAME</th>
+                <th style="text-align: center">POINTS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(team, index) in leaderboardData" :key="team.name">
+                <td style="text-align: center">{{ index + 1 }}</td>
+                <td>{{ team.name }}</td>
+                <td style="text-align: center">{{ team.points }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="last-updated">LAST UPDATED {{ lastUpdated }}</div>
+      <!-- También muestra la última actualización aquí -->
     </main>
   </div>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      teams: [],
+      leaderboardData: [],
+      lastUpdated: "",
+    };
+  },
+  methods: {
+    async fetchTeamsData() {
+      try {
+        const response = await fetch(
+          "https://api.egamena.com/v1/hunger-station/config"
+        );
+        const data = await response.json();
+        console.log("Datos de equipos obtenidos:", data);
+        this.teams = data;
+      } catch (error) {
+        console.error("Error fetching teams data:", error);
+      }
+    },
+    async fetchLeaderboardData() {
+      try {
+        const response = await fetch(
+          "https://api.egamena.com/v1/hunger-station/leaderboard"
+        );
+        let leaderboardData = await response.json();
+
+        leaderboardData = leaderboardData.sort((a, b) => b.points - a.points);
+
+        this.leaderboardData = leaderboardData;
+        this.updateLastUpdatedTime(); 
+      } catch (error) {
+        console.error("Error fetching leaderboard data:", error);
+      }
+    },
+    updateLastUpdatedTime() {
+      const now = new Date();
+      const formattedTime = `${now.toLocaleDateString()} ${now.toLocaleTimeString()}`;
+      this.lastUpdated = formattedTime;
+    },
+    scrollDown() {
+      window.scrollBy({
+        top: 850,
+        left: 0,
+        behavior: "smooth",
+      });
+    },
+    scrollUp() {
+      window.scrollTo({
+        top: 1080,
+        left: 0,
+        behavior: "smooth",
+      });
+    },
+  },
+  mounted() {
+    this.fetchTeamsData();
+    this.fetchLeaderboardData();
+  },
+};
+</script>
+
+
 <style scoped>
 .main-bg-img-panel {
-  background-image: url('https://cdn.egamena.com/external/content/bg_panel_3.png');
+  background-image: url("https://cdn.egamena.com/external/hunger-station/bg_panel_3.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -40,6 +135,7 @@
   display: flex;
   flex-direction: column;
 }
+
 main {
   display: flex;
   flex-direction: column;
@@ -51,93 +147,153 @@ main {
 
 .main-tlt-select-creator {
   font-weight: 900;
-  font-size: 3.3rem;
+  font-size: 3.1rem;
   color: #fbef00;
   font-style: italic;
-  margin: 30px 0;
+  margin-bottom: 30px;
 }
-.rules-main-cont {
-  display: grid;
-  max-width: 75%;
-  margin: auto;
-  gap: 100px;
-}
-.tlt-rule {
+
+.tlt-leaderboard {
   font-weight: 900;
-  color: #fff;
-  font-size: 3rem;
+  font-size: 1.5rem;
+  color: #fbef00;
   font-style: italic;
+  margin: 20px 0;
 }
-.rule-container {
+
+.tlt-streaming-on {
+  font-weight: 900;
+  font-size: 1.5rem;
+  color: #ffffff90;
+  font-style: italic;
+  margin: 0;
+}
+
+.creators-main-container {
   display: flex;
   gap: 50px;
-  justify-content: space-between;
+  max-width: 90%;
+  margin: 20px auto 40px auto;
+  justify-content: space-around;
 }
-.description-rule {
-  font-size: 1.6rem;
-  color: #fff;
+
+.btn-img-creators {
+  max-width: 120px;
 }
-.description-rule-2 {
-  font-size: 2.6rem;
-  color: #cde6f2;
+
+.creator-container {
+  display: grid;
+  gap: 30px;
+}
+
+.top-img-creators {
+  display: flex;
+  width: 100%;
+}
+
+.top-part-team:hover {
+  transition: all 0.3s;
+  transform: scale(1.1);
+}
+
+.top-part-team {
+  justify-content: center;
+  display: flex;
+  transition: all 0.3s;
+}
+
+.leaderboard-table {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  margin: 0;
+}
+
+table {
+  width: 100%;
   font-style: italic;
+  border-collapse: separate;
+  border-spacing: 0 4px;
+  font-family: "AktivGrotesk";
+  font-size: 18px;
   font-weight: 900;
 }
-.left-side {
-  width: 50%;
-  text-align: start;
-  display: grid;
+
+th {
+  background-color: #5e3723;
+  color: #fbef00;
+  font-weight: 900;
+  font-size: 18px;
+  padding: 10px;
+  text-align: left;
 }
-.right-side {
-  height: 280px;
-  display: flex;
-  align-items: center;
+
+td {
+  background-color: #fbef00;
+  color: #5e3723;
+  padding: 10px;
+  text-align: left;
+  font-size: 18px;
+}
+.table-bg {
+  background-color: #5e3723;
+  padding: 0 10px 8px 10px;
+  border-radius: 10px;
   justify-content: center;
+  display: flex;
+  max-width: 700px;
+  width: 100%;
 }
-.img-placeholder {
-  width: auto;
-  max-width: 100%;
-  height: auto;
-  max-height: 100%;
-  border-radius: 40px;
-  object-fit: contain;
+.last-updated {
+  color: #ffffff80;
+  font-weight: bold;
+  margin-top: 10px;
+  font-style: italic;
 }
+.top-part {
+  margin-bottom: 40px;
+  display: grid;
+  gap: 30px;
+  font-weight: 400;
+  font-size: 18px;
+  color: #fff;
+}
+
+.arrow-scroll2 {
+  width: 40px;
+  transform: scaleY(-1);
+}
+
 @media (max-width: 1300px) {
   .tlt-rule {
     font-size: 1.8rem;
   }
+}
 
-  .description-rule {
-    font-size: 1.5rem;
-  }
-
-  .description-rule-2 {
-    font-size: 1.8rem;
-  }
-
-  .rules-main-cont {
-    gap: 20px;
-    max-width: 85%;
-  }
-  .left-side {
-    width: 100%;
-  }
-  .rule-container {
+@media (max-width: 980px) {
+  .creators-main-container {
     flex-direction: column;
-    gap: 30px;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
   }
-
-  .img-placeholder {
-    max-width: 100%;
-    height: auto;
+  .creator-container {
+    width: 100%;
+    gap: 20px;
+    max-width: 50%;
   }
 }
 
 @media (max-width: 970px) {
   main {
     padding: 20px 30px;
-
+  }
+  .creator-container {
+    width: 100%;
+  }
+  .creators-main-container {
+    justify-content: center;
+    margin-bottom: 40px;
   }
 }
-
 </style>
