@@ -123,7 +123,6 @@ export default {
 };
 </script>
 
-
 <style scoped>
 .main-bg-img-panel {
   background-image: url("https://cdn.egamena.com/external/hunger-station/bg_panel_3.png");
