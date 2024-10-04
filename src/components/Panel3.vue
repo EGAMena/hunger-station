@@ -56,6 +56,11 @@
       <div class="last-updated">LAST UPDATED {{ lastUpdated }}</div>
       <!-- También muestra la última actualización aquí -->
     </main>
+        <div class="legal-line-fn">
+      This is not sponsored, endorsed, <br />
+      or administered by Epic Games, Inc.
+    </div>
+
   </div>
 </template>
 
@@ -294,5 +299,18 @@ td {
     justify-content: center;
     margin-bottom: 40px;
   }
+}
+
+@media (max-width: 800px) {
+  .legal-line-fn {
+    display: none;
+  }
+}
+.legal-line-fn {
+  color: white;
+  text-align: start;
+  position: relative;
+  bottom: 20px;
+  left: 20px;
 }
 </style>

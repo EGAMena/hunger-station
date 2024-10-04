@@ -48,6 +48,11 @@
         </div>
       </div>
     </main>
+        <div class="legal-line-fn">
+      This is not sponsored, endorsed, <br />
+      or administered by Epic Games, Inc.
+    </div>
+
   </div>
 </template>
 
@@ -176,11 +181,22 @@ main {
     padding: 20px 30px;
   }
 }
-
+@media (max-width: 800px) {
+  .legal-line-fn {
+    display: none;
+  }
+}
 .vbucks-img {
   display: flex;
   margin-top: 40px;
   max-width: 100%;
   width: 100%;
+}
+.legal-line-fn {
+  color: white;
+  text-align: start;
+  position: relative;
+  bottom: 20px;
+  left: 20px;
 }
 </style>

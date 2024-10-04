@@ -2,7 +2,10 @@
   <div class="main-bg-img-panel">
     <main>
       <div class="img-present">
-        <img src="https://cdn.egamena.com/external/hunger-station/hunter_station_present.png" alt="Present">
+        <img
+          src="https://cdn.egamena.com/external/hunger-station/hunter_station_present.png"
+          alt="Present"
+        />
       </div>
       <div class="creators-main-container-tlt">
         <div class="btn-tlt-big-1">A CUSTOM FORTNITE</div>
@@ -10,26 +13,45 @@
         <div class="btn-tlt-big">10v10v10</div>
       </div>
       <div class="img-created-in-fn">
-        <img src="https://cdn.egamena.com/external/hunger-station/created_fortnite.png" alt="Fortnite">
+        <img
+          src="https://cdn.egamena.com/external/hunger-station/created_fortnite.png"
+          alt="Fortnite"
+        />
       </div>
       <div class="main-tlt-select-creator">SELECT YOUR TEAM</div>
       <div class="creators-main-container">
         <div class="creator-container" v-for="team in teams" :key="team.name">
           <a :href="team.api" class="top-part-team">
-            <img class="top-img-creators" :src="team.imgSrc" alt="Team Logo">
+            <img class="top-img-creators" :src="team.imgSrc" alt="Team Logo" />
           </a>
           <a :href="team.api" class="top-part-team">
-            <img class="btn-img-creators" :src="team.img_influencer" alt="Influencer Image">
+            <img
+              class="btn-img-creators"
+              :src="team.img_influencer"
+              alt="Influencer Image"
+            />
           </a>
         </div>
       </div>
       <div class="bottom-part">
         <div class="btn-text">Scroll for more details</div>
-        <a class="arrow-scroll-a" href="javascript:void(0);" @click="scrollDown">
-          <img class="arrow-scroll" src="https://cdn.egamena.com/external/content/arrow.png" alt="Scroll">
+        <a
+          class="arrow-scroll-a"
+          href="javascript:void(0);"
+          @click="scrollDown"
+        >
+          <img
+            class="arrow-scroll"
+            src="https://cdn.egamena.com/external/content/arrow.png"
+            alt="Scroll"
+          />
         </a>
       </div>
     </main>
+    <div class="legal-line-fn">
+      This is not sponsored, endorsed, <br />
+      or administered by Epic Games, Inc.
+    </div>
   </div>
 </template>
 
@@ -43,19 +65,21 @@ export default {
   methods: {
     async fetchTeamsData() {
       try {
-        const response = await fetch('https://api.egamena.com/v1/hunger-station/config');
+        const response = await fetch(
+          "https://api.egamena.com/v1/hunger-station/config"
+        );
         const data = await response.json();
-        console.log('Datos de equipos obtenidos:', data);
-        this.teams = data; 
+        console.log("Datos de equipos obtenidos:", data);
+        this.teams = data;
       } catch (error) {
-        console.error('Error fetching teams data:', error);
+        console.error("Error fetching teams data:", error);
       }
     },
     scrollDown() {
       window.scrollBy({
         top: 850,
         left: 0,
-        behavior: 'smooth',
+        behavior: "smooth",
       });
     },
   },
@@ -205,12 +229,24 @@ img.btn-img-creators {
 }
 
 .img-present {
-    display: flex;
+  display: flex;
   justify-content: center;
   margin-bottom: 40px;
 }
 
 .img-present img {
   display: flex;
+}
+@media (max-width: 800px) {
+  .legal-line-fn {
+    display: none;
+  }
+}
+.legal-line-fn {
+  color: white;
+  text-align: start;
+  position: relative;
+  bottom: 20px;
+  left: 20px;
 }
 </style>
