@@ -147,6 +147,7 @@ main {
 
 .bottom-part {
   margin-top: auto;
+  z-index: 1000;
   display: grid;
   gap: 14px;
   font-weight: 400;

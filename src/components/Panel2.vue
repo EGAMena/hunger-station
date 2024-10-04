@@ -135,6 +135,7 @@ main {
   padding-bottom: 0px;
   display: grid;
   gap: 30px;
+  z-index: 1000;
   font-weight: 400;
   font-size: 18px;
   color: #fff;
