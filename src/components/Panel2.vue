@@ -1,5 +1,5 @@
 <template>
-  <div class="main-bg-img-panel">
+  <div id="panel2"  class="main-bg-img-panel">
     <main>
       <div class="top-part">
         <div style="display: grid; gap: 14px">
@@ -23,8 +23,7 @@
         </div>
         <div class="btn-tlt-big-3">
           Streamers will be awarding VBucks <br />
-          to MVPs, in addition to prizes being <br />
-          granted by Hunger Station.
+          to MVPs and selected viewers.
         </div>
         <img
           class="vbucks-img"
@@ -39,7 +38,7 @@
           <a
             class="arrow-scroll-a"
             href="javascript:void(0);"
-            @click="scrollDown"
+            @click="scrollDownToNextPanel"
             ><img
               class="arrow-scroll"
               src="https://cdn.egamena.com/external/content/arrow.png"
@@ -59,19 +58,17 @@
 <script>
 export default {
   methods: {
-    scrollDown() {
-      window.scrollBy({
-        top: 1080,
-        left: 0,
-        behavior: "smooth",
-      });
+    scrollDownToNextPanel() {
+      const nextPanel = document.getElementById('panel3');
+      if (nextPanel) {
+        nextPanel.scrollIntoView({ behavior: 'smooth' });
+      }
     },
     scrollUp() {
-      window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: "smooth",
-      });
+      const previousPanel = document.getElementById('panel1');
+      if (previousPanel) {
+        previousPanel.scrollIntoView({ behavior: 'smooth' });
+      }
     },
   },
 };
@@ -196,7 +193,7 @@ main {
   color: white;
   text-align: start;
   position: relative;
-  bottom: 20px;
+  bottom: 83px;
   left: 20px;
 }
 </style>

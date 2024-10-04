@@ -1,5 +1,5 @@
 <template>
-  <div class="main-bg-img-panel">
+  <div id="panel1" class="main-bg-img-panel">
     <main>
       <div class="img-present">
         <img
@@ -76,11 +76,10 @@ export default {
       }
     },
     scrollDown() {
-      window.scrollBy({
-        top: 850,
-        left: 0,
-        behavior: "smooth",
-      });
+      const nextPanel = document.getElementById('panel2');
+      if (nextPanel) {
+        nextPanel.scrollIntoView({ behavior: 'smooth' });
+      }
     },
   },
   mounted() {
@@ -148,7 +147,6 @@ main {
 
 .bottom-part {
   margin-top: auto;
-  padding-bottom: 20px;
   display: grid;
   gap: 14px;
   font-weight: 400;
@@ -246,7 +244,7 @@ img.btn-img-creators {
   color: white;
   text-align: start;
   position: relative;
-  bottom: 20px;
+  bottom: 83px;
   left: 20px;
 }
 </style>

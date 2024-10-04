@@ -1,5 +1,5 @@
 <template>
-  <div class="main-bg-img-panel">
+  <div id="panel3" class="main-bg-img-panel">
     <main>
           <div class="top-part">
         <div style="display: grid; gap: 14px">
@@ -17,7 +17,7 @@
       </div>
 
       <div class="tlt-streaming-on">STREAMING ON</div>
-      <div class="main-tlt-select-creator">(INSERT DATE AND TIME)</div>
+      <div class="main-tlt-select-creator">11 OCTOBER 6:30 PM KSA</div>
       <div class="creators-main-container">
         <div class="creator-container" v-for="team in teams" :key="team.name">
           <a :href="team.twitch" class="top-part-team">
@@ -106,19 +106,11 @@ export default {
       const formattedTime = `${now.toLocaleDateString()} ${now.toLocaleTimeString()}`;
       this.lastUpdated = formattedTime;
     },
-    scrollDown() {
-      window.scrollBy({
-        top: 850,
-        left: 0,
-        behavior: "smooth",
-      });
-    },
     scrollUp() {
-      window.scrollTo({
-        top: 1080,
-        left: 0,
-        behavior: "smooth",
-      });
+      const previousPanel = document.getElementById('panel2');
+      if (previousPanel) {
+        previousPanel.scrollIntoView({ behavior: 'smooth' });
+      }
     },
   },
   mounted() {
