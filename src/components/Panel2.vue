@@ -137,6 +137,7 @@ main {
   gap: 30px;
   z-index: 1000;
   font-weight: 400;
+  z-index: 1000;
   font-size: 18px;
   color: #fff;
 }
