@@ -17,7 +17,7 @@
       </div>
 
       <div class="tlt-streaming-on">STREAMING ON</div>
-      <div class="main-tlt-select-creator">24 OCTOBER 6:30 PM KSA</div>
+      <div class="main-tlt-select-creator">25 OCTOBER 6:30 PM KSA</div>
       <div class="creators-main-container">
         <div class="creator-container" v-for="team in teams" :key="team.name">
           <a :href="team.twitch" class="top-part-team">
